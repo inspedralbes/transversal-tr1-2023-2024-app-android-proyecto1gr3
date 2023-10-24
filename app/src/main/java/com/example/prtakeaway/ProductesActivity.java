@@ -4,8 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,11 +27,13 @@ public class ProductesActivity extends AppCompatActivity {
     private ProductosAdapter adapter;
 
     List<Productos.Producto> productos = new ArrayList<>();
+    List<ProductoEnCarrito> carrito = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_productes);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         // Inicializa el RecyclerView y su adaptador
         recyclerView = findViewById(R.id.recyclerView);
@@ -65,5 +70,38 @@ public class ProductesActivity extends AppCompatActivity {
             }
         });
 
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.action_carrito) {
+            // Iniciar la actividad MainActivity (login)
+            Intent intent = new Intent(this, CarritoActivity.class);
+            startActivity(intent);
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    public void afegirProducte(Productos.Producto producto){
+        for(ProductoEnCarrito productoCarrito : carrito){
+            if(productoCarrito.getNombre().equals(producto)){
+                productoCarrito.setCantidad(productoCarrito.getCantidad()+1);
+                return;
+            }
+        }
+        ProductoEnCarrito productoEnCarrito = new ProductoEnCarrito(producto.getNombreProducto(), producto.getPrecioUnitario(), 1);
+        carrito.add(productoEnCarrito);
+
+        for(ProductoEnCarrito productoEnCarrito1 : carrito){
+            Log.d("productoEnCarrito", productoEnCarrito1.getNombre());
+        }
     }
 }

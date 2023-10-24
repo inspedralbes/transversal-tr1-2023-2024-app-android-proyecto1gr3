@@ -3,6 +3,7 @@ package com.example.prtakeaway;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -41,6 +42,12 @@ public class ProductosAdapter extends RecyclerView.Adapter<ProductosAdapter.Prod
         //holder.imagenProducto.setImageResource(R.drawable.imagen_placeholder);
         holder.nombreProducto.setText(producto.getNombreProducto());
         holder.precioProducto.setText(String.valueOf(producto.getPrecioUnitario()));
+        holder.btnAfegir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               // afegirProducte(producto);
+            }
+        });
     }
 
     @Override
@@ -51,6 +58,7 @@ public class ProductosAdapter extends RecyclerView.Adapter<ProductosAdapter.Prod
     public static class ProductoViewHolder extends RecyclerView.ViewHolder {
         //ImageView imagenProducto;
         TextView nombreProducto, precioProducto;
+        Button btnAfegir;
 
         public ProductoViewHolder(View itemView) {
             super(itemView);
@@ -59,4 +67,5 @@ public class ProductosAdapter extends RecyclerView.Adapter<ProductosAdapter.Prod
             precioProducto = itemView.findViewById(R.id.precioProducto);
         }
     }
+
 }
