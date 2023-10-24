@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PerfilActivity"
+    android:padding="150px">
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TU PERFIL"
+            android:textSize="45dp"
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            />
+
+        <TextView
+            android:paddingTop="100px"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nombre: "
+            android:textStyle="bold"
+            android:textSize="25dp"
+            />
+
+        <TextView
+            android:id="@+id/tvNombre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:text="nombre"
+            android:textSize="20dp" />
+
+        <TextView
+            android:paddingTop="100px"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Apellido: "
+            android:textStyle="bold"
+            android:textSize="25dp"
+            />
+
+        <TextView
+            android:id="@+id/tvApellido"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:text="apellido"
+            android:textSize="20dp" />
+        <TextView
+            android:paddingTop="100px"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Correo electronico: "
+            android:textStyle="bold"
+            android:textSize="25dp"
+            />
+
+        <TextView
+            android:id="@+id/tvCorreo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:text="correo"
+            android:textSize="20dp" />
+        <TextView
+            android:paddingTop="100px"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dirección: "
+            android:textStyle="bold"
+            android:textSize="25dp"
+            />
+
+        <TextView
+            android:id="@+id/tvDireccion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:text="direccion"
+            android:textSize="20dp" />
+
+        <TextView
+            android:paddingTop="100px"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Telefono: "
+            android:textStyle="bold"
+            android:textSize="25dp"
+            />
+
+        <TextView
+            android:id="@+id/tvTelefono"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:text="telefono"
+            android:textSize="20dp" />
+
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
