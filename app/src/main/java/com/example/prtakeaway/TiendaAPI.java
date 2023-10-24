@@ -10,6 +10,6 @@ public interface TiendaAPI {
     @POST("/login")
         Call<RespuestaUsuario> login(@Body Usuario usuario);
 
-    @GET("/getProductos")
+    @GET("/getProducts")
         Call<List<Productos.Producto>> getProductos();
 }
