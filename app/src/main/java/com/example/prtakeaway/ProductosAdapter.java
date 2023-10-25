@@ -1,5 +1,6 @@
 package com.example.prtakeaway;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,9 +16,12 @@ import java.util.List;
 public class ProductosAdapter extends RecyclerView.Adapter<ProductosAdapter.ProductoViewHolder>  {
 
     private List<Productos.Producto> productos;
+    private List<ProductoEnCarrito> carrito;
 
-    public ProductosAdapter(List<Productos.Producto> productos){
+    public ProductosAdapter(List<Productos.Producto> productos, List<ProductoEnCarrito> carrito){
+
         this.productos = productos;
+        this.carrito = carrito;
     }
     // Método para actualizar la lista de productos
     public void actualizarProductos(List<Productos.Producto> nuevosProductos) {
@@ -45,7 +49,13 @@ public class ProductosAdapter extends RecyclerView.Adapter<ProductosAdapter.Prod
         holder.btnAfegir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               // afegirProducte(producto);
+                ((ProductesActivity) v.getContext()).afegirProducte(producto);
+                for(ProductoEnCarrito product : carrito){
+
+                    int cantidad = product.getCantidad();
+                    String prueba = product.getNombre().toString()+" "+cantidad;
+                    Log.d("carrito", prueba);
+                }
             }
         });
     }
@@ -65,6 +75,7 @@ public class ProductosAdapter extends RecyclerView.Adapter<ProductosAdapter.Prod
             //imagenProducto = itemView.findViewById(R.id.imagenProducto);
             nombreProducto = itemView.findViewById(R.id.nombreProducto);
             precioProducto = itemView.findViewById(R.id.precioProducto);
+            btnAfegir = itemView.findViewById(R.id.btnAfegir);
         }
     }
 

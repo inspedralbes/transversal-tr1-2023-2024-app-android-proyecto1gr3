@@ -38,7 +38,7 @@ public class ProductesActivity extends AppCompatActivity {
         // Inicializa el RecyclerView y su adaptador
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new GridLayoutManager(this, 3)); // Muestra 3 columnas por fila
-        adapter = new ProductosAdapter(new ArrayList<>());
+        adapter = new ProductosAdapter(new ArrayList<>(), carrito);
         recyclerView.setAdapter(adapter);
 
         retrofit = new Retrofit.Builder()
@@ -91,8 +91,9 @@ public class ProductesActivity extends AppCompatActivity {
     }
 
     public void afegirProducte(Productos.Producto producto){
+        String nombreProducto = producto.getNombreProducto();
         for(ProductoEnCarrito productoCarrito : carrito){
-            if(productoCarrito.getNombre().equals(producto)){
+            if(productoCarrito.getNombre().equals(nombreProducto)){
                 productoCarrito.setCantidad(productoCarrito.getCantidad()+1);
                 return;
             }
@@ -101,7 +102,8 @@ public class ProductesActivity extends AppCompatActivity {
         carrito.add(productoEnCarrito);
 
         for(ProductoEnCarrito productoEnCarrito1 : carrito){
-            Log.d("productoEnCarrito", productoEnCarrito1.getNombre());
+            String prueba = productoEnCarrito1.getNombre() + " "+productoEnCarrito1.getCantidad();
+            Log.d("productoEnCarrito", prueba);
         }
     }
 }
