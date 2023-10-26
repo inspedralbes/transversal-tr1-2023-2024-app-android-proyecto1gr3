@@ -6,4 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".CarritoActivity">
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewCarrito"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="150px"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

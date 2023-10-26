@@ -20,7 +20,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Correo electronico:"
+                android:text="@string/tvCorreo"
                 android:textSize="25dp"
                 />
 
@@ -43,7 +43,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Contraseña:"
+                android:text="@string/tvContraseña"
                 android:textSize="25dp"/>
             <EditText
                 android:id="@+id/etPass"
@@ -61,7 +61,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="150px"
-            android:text="LOGIN"/>
+            android:text="@string/btnLogin"/>
     </LinearLayout>
 
 

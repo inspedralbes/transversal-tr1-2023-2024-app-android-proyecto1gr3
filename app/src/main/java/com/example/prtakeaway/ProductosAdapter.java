@@ -45,7 +45,7 @@ public class ProductosAdapter extends RecyclerView.Adapter<ProductosAdapter.Prod
         // Aquí deberías cargar la imagen desde la URL si es necesario.
         //holder.imagenProducto.setImageResource(R.drawable.imagen_placeholder);
         holder.nombreProducto.setText(producto.getNombreProducto());
-        holder.precioProducto.setText(String.valueOf(producto.getPrecioUnitario()));
+        holder.precioProducto.setText(String.valueOf(producto.getPrecioUnitario())+"€");
         holder.btnAfegir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -77,6 +77,10 @@ public class ProductosAdapter extends RecyclerView.Adapter<ProductosAdapter.Prod
             precioProducto = itemView.findViewById(R.id.precioProducto);
             btnAfegir = itemView.findViewById(R.id.btnAfegir);
         }
+    }
+
+    public List<ProductoEnCarrito> obtenerProductos(){
+        return carrito;
     }
 
 }

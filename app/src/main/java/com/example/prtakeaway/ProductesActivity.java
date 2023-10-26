@@ -5,10 +5,13 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +25,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class ProductesActivity extends AppCompatActivity {
 
     private Retrofit retrofit;
-    private String URL = "http://192.168.19.242:3000/"; //url para pedir los productos
+    private String URL = "http://192.168.1.140:3000/"; //url para pedir los productos
     private RecyclerView recyclerView;
     private ProductosAdapter adapter;
 
@@ -59,7 +62,7 @@ public class ProductesActivity extends AppCompatActivity {
                 adapter.actualizarProductos(productos);
                 for(Productos.Producto producto : productos){
                     String prueba = producto.getNombreProducto();
-                    Log.d("muestra",prueba);
+                    //Log.d("muestra",prueba);
                 }
 
             }
@@ -81,6 +84,16 @@ public class ProductesActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == R.id.action_carrito) {
+            SharedPreferences sharedPreferences = getSharedPreferences("MiCarrito", MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+
+            Gson gson = new Gson();
+            String CarritoJson = gson.toJson(carrito);
+            Log.d("pruebaJSON", CarritoJson);
+
+            editor.putString("productoEnCarrito", CarritoJson);
+            editor.apply();
+
             // Iniciar la actividad MainActivity (login)
             Intent intent = new Intent(this, CarritoActivity.class);
             startActivity(intent);
@@ -105,5 +118,7 @@ public class ProductesActivity extends AppCompatActivity {
             String prueba = productoEnCarrito1.getNombre() + " "+productoEnCarrito1.getCantidad();
             Log.d("productoEnCarrito", prueba);
         }
+
+
     }
 }
