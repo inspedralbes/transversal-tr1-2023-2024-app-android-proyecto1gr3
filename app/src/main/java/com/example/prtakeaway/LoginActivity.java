@@ -47,7 +47,6 @@ EditText etUser, etPass;
                 //Toast.makeText(LoginActivity.this, "User: "+user+" Pass: "+pass, Toast.LENGTH_SHORT).show();
             }
         });
-
         SharedPreferences sharedPreferences = getSharedPreferences("MisPreferenciasPrueba", Context.MODE_PRIVATE);
 
         SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -114,13 +113,15 @@ EditText etUser, etPass;
 
         String mail = etUser.getText().toString().trim();
         Pattern pattern = Patterns.EMAIL_ADDRESS;
-
+/*
         if(pattern.matcher(mail).matches()){
             Intent intent = new Intent(LoginActivity.this, MenuActivity.class);
             startActivity(intent);
         }else{
             Toast.makeText(this, "El mail no es valido!", Toast.LENGTH_SHORT).show();
 
-        }
+        }*/
+        Intent intent = new Intent(LoginActivity.this, MenuActivity.class);
+        startActivity(intent);
     }
 }
