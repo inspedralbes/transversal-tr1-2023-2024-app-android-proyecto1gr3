@@ -1,10 +1,16 @@
 package com.example.prtakeaway;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Usuario {
 
-    private String nombre, contrasena;
-    public Usuario(String nombre, String contrasena){
-        this.nombre = nombre;
-        this.contrasena = contrasena;
+    @SerializedName("email")
+    private String mail;
+    @SerializedName("password")
+    private String password;
+    public Usuario(String email, String contrasena){
+        this.mail = email;
+        this.password = contrasena;
     }
+
 }

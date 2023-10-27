@@ -1,94 +1,35 @@
 package com.example.prtakeaway;
 
+
 import com.google.gson.annotations.SerializedName;
 
 public class RespuestaUsuario {
 
+    @SerializedName("userData")
+    public DataUser userData;
 
-    @SerializedName("IDCliente")
-    private int idUsuario;
+    @SerializedName("cookie")
+    public Cookie cookie;
 
-    @SerializedName("Nombre")
-    private String nombre;
-
-    @SerializedName("Apellido")
-    private String apellido;
-
-    @SerializedName("Contrasena")
-    private String contrasena;
-
-    @SerializedName("CorreoElectronico")
-    private String correo;
-
-    @SerializedName("Telefono")
-    private String telefono;
-
-    @SerializedName("Direccion")
-    private  String direccion;
-
-    public RespuestaUsuario(int idUsuario, String nombre, String apellido, String contrasena, String correo, String telefono, String direccion) {
-        this.idUsuario = idUsuario;
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.contrasena = contrasena;
-        this.correo = correo;
-        this.telefono = telefono;
-        this.direccion = direccion;
+    public RespuestaUsuario(DataUser userData, Cookie cookie) {
+        this.userData = userData;
+        this.cookie = cookie;
     }
 
-    public int getIdUsuario() {
-        return idUsuario;
+    public DataUser getUserData() {
+        return userData;
     }
 
-    public void setIdUsuario(int idUsuario) {
-        this.idUsuario = idUsuario;
+    public void setUserData(DataUser userData) {
+        this.userData = userData;
     }
 
-    public String getNombre() {
-        return nombre;
+    public Cookie getCookie() {
+        return cookie;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getApellido() {
-        return apellido;
-    }
-
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
-    }
-
-    public String getContrasena() {
-        return contrasena;
-    }
-
-    public void setContrasena(String contrasena) {
-        this.contrasena = contrasena;
-    }
-
-    public String getCorreo() {
-        return correo;
-    }
-
-    public void setCorreo(String correo) {
-        this.correo = correo;
-    }
-
-    public String getTelefono() {
-        return telefono;
-    }
-
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
-    }
-
-    public String getDireccion() {
-        return direccion;
-    }
-
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
+    public void setCookie(Cookie cookie) {
+        this.cookie = cookie;
     }
 }
+
