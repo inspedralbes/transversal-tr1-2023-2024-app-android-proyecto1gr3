@@ -33,13 +33,6 @@
                 android:text="VER PRODUCTOS"/>
 
             <Button
-                android:id="@+id/btnMiCarrito"
-                android:layout_width="800px"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="150px"
-                android:text="Ver mi Carrito"/>
-
-            <Button
                 android:id="@+id/btnEstado"
                 android:layout_width="800px"
                 android:layout_height="wrap_content"

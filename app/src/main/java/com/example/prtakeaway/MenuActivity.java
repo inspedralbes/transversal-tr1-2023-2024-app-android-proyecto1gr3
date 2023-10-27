@@ -10,7 +10,7 @@ import android.widget.Button;
 public class MenuActivity extends AppCompatActivity {
 
     //variables para los botones del menu
-    Button btnProductos, btnCarrito, btnEstado, btnMiPerfil;
+    Button btnProductos, btnEstado, btnMiPerfil;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,7 +18,6 @@ public class MenuActivity extends AppCompatActivity {
 
         //vinculamos los botones
         btnProductos = findViewById(R.id.btnVerProductos);
-        btnCarrito = findViewById(R.id.btnMiCarrito);
         btnEstado = findViewById(R.id.btnEstado);
         btnMiPerfil = findViewById(R.id.btnMiPerfil);
 
@@ -31,13 +30,6 @@ public class MenuActivity extends AppCompatActivity {
             }
         });
 
-        btnCarrito.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MenuActivity.this, CarritoActivity.class);
-                startActivity(intent);
-            }
-        });
         btnEstado.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
