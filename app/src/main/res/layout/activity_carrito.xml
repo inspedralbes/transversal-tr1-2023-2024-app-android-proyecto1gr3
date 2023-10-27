@@ -32,7 +32,7 @@
         android:textSize="25dp"/>
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnConfirmar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
