@@ -22,7 +22,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class LoginActivity extends AppCompatActivity {
-    String URL = "http://192.168.16.227:3000/"; //variable con la url a la que nos conectamos
+    String URL = "http://192.168.1.21:3000/"; //variable con la url a la que nos conectamos
     public Retrofit retrofit; //variable para el retrofit
 Button btnLogin;
 EditText etUser, etPass;

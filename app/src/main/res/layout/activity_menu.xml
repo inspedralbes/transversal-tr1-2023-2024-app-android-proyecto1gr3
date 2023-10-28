@@ -5,6 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MenuActivity"
+    android:background="#2E68CD"
+    android:backgroundTint="#379BD1"
     android:padding="150px">
 
     <LinearLayout
@@ -22,6 +24,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingTop="200px"
             android:orientation="vertical"
             android:gravity="center">
 

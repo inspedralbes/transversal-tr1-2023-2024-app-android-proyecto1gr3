@@ -5,6 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ProductesActivity"
+    android:background="#2E68CD"
+    android:backgroundTint="#379BD1"
     android:padding="150px">
 
 
