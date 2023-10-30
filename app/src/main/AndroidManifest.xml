@@ -29,7 +29,7 @@
             android:parentActivityName=".MenuActivity">
             <meta-data
                 android:name=".EstadoActivity"
-                android:value=".PerfilActivity"/>
+                android:value=".EstadoActivity"/>
         </activity>
         <activity
             android:name=".CarritoActivity"
@@ -38,7 +38,7 @@
             >
             <meta-data
                 android:name=".CarritoActivity"
-                android:value=".PerfilActivity"/>
+                android:value=".CarritoActivity"/>
         </activity>
         <activity
             android:name=".ProductesActivity"
@@ -46,7 +46,7 @@
             android:parentActivityName=".MenuActivity">
             <meta-data
                 android:name=".ProductesActivity"
-                android:value=".PerfilActivity"/>
+                android:value=".ProductesActivity"/>
 
         </activity>
         <activity

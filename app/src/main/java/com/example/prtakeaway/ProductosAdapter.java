@@ -47,6 +47,7 @@ public class ProductosAdapter extends RecyclerView.Adapter<ProductosAdapter.Prod
         //holder.imagenProducto.setImageResource(R.drawable.imagen_placeholder);
         holder.nombreProducto.setText(producto.getNombreProducto());
         holder.precioProducto.setText(String.valueOf(producto.getPrecioUnitario())+"€");
+        holder.descripcionProducto.setText(producto.getDescripcion());
         holder.btnAfegir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -68,7 +69,7 @@ public class ProductosAdapter extends RecyclerView.Adapter<ProductosAdapter.Prod
 
     public static class ProductoViewHolder extends RecyclerView.ViewHolder {
         //ImageView imagenProducto;
-        TextView nombreProducto, precioProducto;
+        TextView nombreProducto, precioProducto, descripcionProducto;
         Button btnAfegir;
 
         public ProductoViewHolder(View itemView) {
@@ -77,6 +78,7 @@ public class ProductosAdapter extends RecyclerView.Adapter<ProductosAdapter.Prod
             nombreProducto = itemView.findViewById(R.id.nombreProducto);
             precioProducto = itemView.findViewById(R.id.precioProducto);
             btnAfegir = itemView.findViewById(R.id.btnAfegir);
+            descripcionProducto = itemView.findViewById(R.id.descripcionProducto);
         }
     }
 
@@ -88,7 +90,7 @@ public class ProductosAdapter extends RecyclerView.Adapter<ProductosAdapter.Prod
         List<Productos.Producto> productosFiltrados = new ArrayList<>();
 
         for (Productos.Producto producto : productos) {
-            if (producto.getPrecioUnitario() <= precioMaximo) {
+            if (producto.getPrecioUnitario() < precioMaximo) {
                 productosFiltrados.add(producto);
             }
         }

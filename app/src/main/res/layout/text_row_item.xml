@@ -11,12 +11,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Comanda: "
+        android:textColor="@color/white"
         android:textSize="16sp" />
 
     <EditText
         android:id="@+id/editText"
         android:layout_width="0dp"
         android:layout_weight="1"
+        android:textColorHint="@color/white"
         android:layout_height="wrap_content"
         android:hint="Escribe algo..."
         android:textSize="16sp" />
@@ -25,6 +27,7 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@color/white"
         android:text="Estado"
         android:textSize="16sp" />
 </LinearLayout>

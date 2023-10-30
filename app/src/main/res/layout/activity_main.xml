@@ -5,14 +5,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#2E68CD"
-    android:backgroundTint="#379BD1"
+    android:backgroundTint="#2E68CD"
     android:padding="150px"
     tools:context=".LoginActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:background="#977979"
+        android:backgroundTint="#206688"
+        android:orientation="vertical"
+
+        android:padding="30px"
+        tools:layout_editor_absoluteX="57dp"
+        tools:layout_editor_absoluteY="57dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -24,6 +36,7 @@
                 android:layout_height="wrap_content"
                 android:paddingBottom="25px"
                 android:text="@string/tvCorreo"
+                android:textColor="@color/white"
                 android:textSize="25dp" />
 
             <EditText
@@ -32,7 +45,8 @@
                 android:layout_height="150px"
                 android:layout_gravity="end"
                 android:hint="ejemplo@correo.com"
-                android:inputType="textEmailAddress" />
+                android:inputType="textEmailAddress"
+                android:textColorHint="@color/white" />
         </LinearLayout>
 
         <LinearLayout
@@ -46,6 +60,7 @@
                 android:layout_height="wrap_content"
                 android:paddingBottom="25px"
                 android:text="@string/tvContraseña"
+                android:textColor="@color/white"
                 android:textSize="25dp" />
 
             <EditText
@@ -54,7 +69,8 @@
                 android:layout_height="150px"
                 android:layout_gravity="end"
                 android:hint="Introduce tu contraseña"
-                android:inputType="textPassword" />
+                android:inputType="textPassword"
+                android:textColorHint="@color/white" />
 
 
         </LinearLayout>

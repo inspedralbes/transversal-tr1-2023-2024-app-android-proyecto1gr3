@@ -40,13 +40,15 @@ public class CarritoActivity extends AppCompatActivity {
     EditText etComentario;
     String BASEURL = "http://192.168.18.251:3000/";
 
-    List<ProductoEnCarrito> carrito = obtenerProductosEnCarrito();
+    List<ProductoEnCarrito> carrito;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_carrito);
+        Log.d("prueba", "entro al activity");
         etComentario = findViewById(R.id.etComentario);
+        carrito = obtenerProductosEnCarrito();
 
         //iniciamos y editamos el recycler view con el adaptador
         recyclerView = findViewById(R.id.recyclerViewCarrito);
@@ -69,6 +71,7 @@ public class CarritoActivity extends AppCompatActivity {
                 showConfirmDialog();
             }
         });
+
 
 
         }

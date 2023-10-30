@@ -67,7 +67,7 @@ public class ProductesActivity extends AppCompatActivity {
         call.enqueue(new Callback<List<Productos.Producto>>() {
             @Override
             public void onResponse(Call<List<Productos.Producto>> call, Response<List<Productos.Producto>> response) {
-                Log.d("call","ha funcionado");
+
                 productos = response.body();
                 adapter.actualizarProductos(productos);
                 for(Productos.Producto producto : productos){
@@ -146,10 +146,12 @@ public class ProductesActivity extends AppCompatActivity {
         for(ProductoEnCarrito productoCarrito : carrito){
             if(productoCarrito.getNombre().equals(nombreProducto)){
                 productoCarrito.setCantidad(productoCarrito.getCantidad()+1);
+                Toast.makeText(this, nombreProducto+" añadido al carrito!", Toast.LENGTH_SHORT).show();
+
                 return;
             }
         }
-        ProductoEnCarrito productoEnCarrito = new ProductoEnCarrito(producto.getNombreProducto(), producto.getPrecioUnitario(), 1, producto.getIdProducto());
+        ProductoEnCarrito productoEnCarrito = new ProductoEnCarrito(producto.getNombreProducto(), producto.getPrecioUnitario(), 1, producto.getIdProducto(), producto.getDescripcion());
         carrito.add(productoEnCarrito);
 
         Toast.makeText(this, nombreProducto+" añadido al carrito!", Toast.LENGTH_SHORT).show();

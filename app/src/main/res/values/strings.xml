@@ -10,7 +10,9 @@
     <string name="perfilDireccion">Direcció:</string>
     <string name="perfilTelefono">Telèfon:</string>
     <string name="itemBtnAfegir"> + </string>
-    <string name="mostrarTodo">Mostrar todo</string>
-    <string name="menor2">Menos de 2€</string>
-    <string name="menor5">Menos de 5€</string>
+    <string name="mostrarTodo">Mostrar tot</string>
+    <string name="menor2">Menys de 2€</string>
+    <string name="menor5">Menys de 5€</string>
+    <string name="estatComanda">Estat de la teva comanda</string>
+    <string name="confirmar">Estàs segur de confirmar la comanda?</string>
 </resources>

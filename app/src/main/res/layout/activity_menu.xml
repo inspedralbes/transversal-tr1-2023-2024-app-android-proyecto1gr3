@@ -12,14 +12,19 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="#977979"
+        android:backgroundTint="#206688"
         android:orientation="vertical">
 
         <TextView
+            android:id="@+id/tvTitol"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Bienvenido! ¿Que quieres hacer?"
+            android:text="Benvolgut"
             android:textSize="35dp"
-            android:gravity="center"/>
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:layout_gravity="center"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -30,21 +35,21 @@
 
             <Button
                 android:id="@+id/btnVerProductos"
-                android:layout_width="800px"
+                android:layout_width="600px"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="150px"
                 android:text="VER PRODUCTOS"/>
 
             <Button
                 android:id="@+id/btnEstado"
-                android:layout_width="800px"
+                android:layout_width="600px"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="150px"
                 android:text="Estado de pedidos"/>
 
             <Button
                 android:id="@+id/btnMiPerfil"
-                android:layout_width="800px"
+                android:layout_width="600px"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="150px"
                 android:text="Mi perfil"/>

@@ -9,12 +9,14 @@ public class ProductoEnCarrito {
     private int cantidad;
     @SerializedName("IDProducto")
     private int IDproducto;
+    private String descripcion;
 
-    public ProductoEnCarrito(String nombre, float precio, int cantidad, int id){
+    public ProductoEnCarrito(String nombre, float precio, int cantidad, int id, String descripcion){
         this.nombre = nombre;
         this.precio = precio;
         this.cantidad =cantidad;
         this.IDproducto = id;
+        this.descripcion = descripcion;
     }
 
     public String getNombre() {
@@ -43,5 +45,9 @@ public class ProductoEnCarrito {
 
     public int getIDproducto() {
         return IDproducto;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
     }
 }
