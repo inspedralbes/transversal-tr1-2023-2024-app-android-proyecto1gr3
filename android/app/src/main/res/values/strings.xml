@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">PRTakeAway</string>
+    <string name="tvCorreo">Correu electrònic:</string>
+    <string name="tvContraseña">Contrasenya:</string>
+    <string name="btnLogin">LOGIN</string>
+    <string name="tituloPerfil">EL TEU PERFIL</string>
+    <string name="perfilNombre">Nom:</string>
+    <string name="perfilApellido">Cognom:</string>
+    <string name="perfilCorreo">Correu:</string>
+    <string name="perfilDireccion">Direcció:</string>
+    <string name="perfilTelefono">Telèfon:</string>
+    <string name="itemBtnAfegir"> + </string>
+</resources>
