@@ -73,6 +73,7 @@ public class ProductesActivity extends AppCompatActivity {
                 for(Productos.Producto producto : productos){
                     String prueba = producto.getNombreProducto();
                     //Log.d("muestra",prueba);
+                    //
                 }
 
             }
