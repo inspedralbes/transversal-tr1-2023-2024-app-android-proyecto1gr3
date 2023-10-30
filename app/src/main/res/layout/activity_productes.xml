@@ -9,6 +9,38 @@
     android:backgroundTint="#379BD1"
     android:padding="150px">
 
+    <LinearLayout
+        android:id="@+id/linearFiltros"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/btnTodo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/mostrarTodo"
+            android:textSize="8dp"/>
+        <Button
+            android:id="@+id/btnMenor2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="15px"
+            android:text="@string/menor2"
+            android:textSize="8dp"/>
+        <Button
+            android:id="@+id/btnMenor5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/menor5"
+            android:textSize="8dp"/>
+
+    </LinearLayout>
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
@@ -19,7 +51,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/linearFiltros"
         app:layout_constraintVertical_bias="0.0"
         app:spanCount="3" />
 

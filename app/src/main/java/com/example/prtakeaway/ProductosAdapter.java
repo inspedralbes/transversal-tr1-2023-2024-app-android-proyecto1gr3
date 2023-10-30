@@ -11,6 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ProductosAdapter extends RecyclerView.Adapter<ProductosAdapter.ProductoViewHolder>  {
@@ -81,6 +82,18 @@ public class ProductosAdapter extends RecyclerView.Adapter<ProductosAdapter.Prod
 
     public List<ProductoEnCarrito> obtenerProductos(){
         return carrito;
+    }
+
+    public void filtrarProductosPorPrecio(double precioMaximo) {
+        List<Productos.Producto> productosFiltrados = new ArrayList<>();
+
+        for (Productos.Producto producto : productos) {
+            if (producto.getPrecioUnitario() <= precioMaximo) {
+                productosFiltrados.add(producto);
+            }
+        }
+
+        actualizarProductos(productosFiltrados);
     }
 
 }

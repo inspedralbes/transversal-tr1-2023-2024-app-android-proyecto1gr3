@@ -27,11 +27,23 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Precio total: "
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintBottom_toTopOf="@+id/etComentario"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/recyclerViewCarrito"
         android:textSize="25dp"/>
+
+    <EditText
+        android:id="@+id/etComentario"
+        android:layout_width="match_parent"
+        android:layout_height="150px"
+        app:layout_constraintTop_toBottomOf="@+id/tvPrecio"
+        app:layout_constraintBottom_toTopOf="@+id/btnConfirmar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:hint="Comentario adicional:"
+        android:layout_marginHorizontal="50px"
+        android:background="@color/white"/>
 
     <Button
         android:id="@+id/btnConfirmar"
@@ -40,7 +52,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recyclerViewCarrito"
+        app:layout_constraintTop_toBottomOf="@+id/etComentario"
         android:text="CONFIRMAR COMPRA"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

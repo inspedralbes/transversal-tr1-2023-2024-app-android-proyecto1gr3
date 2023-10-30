@@ -24,7 +24,7 @@ public class PerfilActivity extends AppCompatActivity {
         tvTelefono = findViewById(R.id.tvTelefono);
 
         //cogemos de los sharedPreferences los datos del usuario
-        SharedPreferences sharedPreferences = getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
+        SharedPreferences sharedPreferences = getSharedPreferences("MisPreferenciasPrueba", Context.MODE_PRIVATE);
         //los agregamos a los tv
         tvNombre.setText(sharedPreferences.getString("nombre",""));
         tvApellido.setText(sharedPreferences.getString("apellido",""));

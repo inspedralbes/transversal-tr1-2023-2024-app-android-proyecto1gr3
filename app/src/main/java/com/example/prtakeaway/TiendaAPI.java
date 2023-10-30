@@ -15,4 +15,7 @@ public interface TiendaAPI {
 
     @GET("/getOrders")
     Call<List<Pedidos.Pedido>> getPedido();
+
+    @POST("/enviarPedido")
+    Call<Void> enviarPedido(@Body Pedidos.Pedido pedido);
 }

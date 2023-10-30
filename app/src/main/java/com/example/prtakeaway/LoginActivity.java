@@ -44,13 +44,13 @@ EditText etUser, etPass;
                 //cogemos los valores de los campos que ha rellenado el usuario
                 String user = etUser.getText().toString();
                 String pass = etPass.getText().toString();
-                login(user, pass); //llamamos a la funcion
-                //loginPrueba();
+                //login(user, pass); //llamamos a la funcion
+                loginPrueba();
 
                 //Toast.makeText(LoginActivity.this, "User: "+user+" Pass: "+pass, Toast.LENGTH_SHORT).show();
             }
         });
-        /*SharedPreferences sharedPreferences = getSharedPreferences("MisPreferenciasPrueba", Context.MODE_PRIVATE);
+        SharedPreferences sharedPreferences = getSharedPreferences("MisPreferenciasPrueba", Context.MODE_PRIVATE);
 
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString("nombre", "nombre prueba");
@@ -61,7 +61,7 @@ EditText etUser, etPass;
         editor.putString("direccion", "direccion prueba");
         editor.putString("telefono","telefono prueba");
 
-        editor.apply();*/
+        editor.apply();
     }
 
     //funcion que comprobara si el usuario puede entrar
@@ -91,6 +91,7 @@ EditText etUser, etPass;
                     Log.d("nombre",respuesta.userData.getNombre());
                     SharedPreferences.Editor editor = sharedPreferences.edit();
 
+                    editor.putInt("id", respuesta.userData.getIdUsuario());
                     editor.putString("nombre", respuesta.userData.getNombre());
                     editor.putString("apellido",respuesta.userData.getApellido());
                     editor.putInt("idCliente",respuesta.userData.getIdUsuario());

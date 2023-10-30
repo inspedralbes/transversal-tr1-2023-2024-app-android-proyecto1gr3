@@ -52,5 +52,33 @@ public class Pedidos {
         public String getComentario() {
             return Comentario;
         }
+
+        public void setIDPedido(int IDPedido) {
+            this.IDPedido = IDPedido;
+        }
+
+        public void setIDCliente(int IDCliente) {
+            this.IDCliente = IDCliente;
+        }
+
+        public void setFechaPedido(String fechaPedido) {
+            FechaPedido = fechaPedido;
+        }
+
+        public void setTotal(double total) {
+            Total = total;
+        }
+
+        public void setEstado(String estado) {
+            Estado = estado;
+        }
+
+        public void setComentario(String comentario) {
+            Comentario = comentario;
+        }
+    }
+
+    public void setPedidos(List<Pedido> pedidos) {
+        this.pedidos = pedidos;
     }
 }
