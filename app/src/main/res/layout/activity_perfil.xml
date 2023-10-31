@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".PerfilActivity"
     android:background="#2E68CD"
-    android:backgroundTint="#379BD1"
+    android:backgroundTint="#2E68CD"
     android:padding="150px">
 
 
@@ -14,6 +14,9 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="#977979"
+        android:backgroundTint="#206688"
+        android:padding="100px"
         android:orientation="vertical"
         >
         <TextView
@@ -21,6 +24,7 @@
             android:layout_height="wrap_content"
             android:text="@string/tituloPerfil"
             android:textSize="40dp"
+            android:textColor="@color/white"
             android:layout_gravity="center"
             android:textStyle="bold"
             />
@@ -30,6 +34,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/perfilNombre"
+            android:textColor="@color/white"
             android:textStyle="bold"
             android:textSize="25dp"
             />
@@ -40,6 +45,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="start"
             android:text="nombre"
+            android:textColor="@color/white"
             android:textSize="20dp" />
 
         <TextView
@@ -47,6 +53,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/perfilApellido"
+            android:textColor="@color/white"
             android:layout_gravity="start"
             android:textStyle="bold"
             android:textSize="25dp"
@@ -57,6 +64,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="start"
+            android:textColor="@color/white"
             android:text="apellido"
             android:textSize="20dp" />
         <TextView
@@ -64,6 +72,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/perfilCorreo"
+            android:textColor="@color/white"
             android:textStyle="bold"
             android:textSize="25dp"
             />
@@ -74,12 +83,14 @@
             android:layout_height="wrap_content"
             android:layout_gravity="start"
             android:text="correo"
+            android:textColor="@color/white"
             android:textSize="20dp" />
         <TextView
             android:paddingTop="100px"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/perfilDireccion"
+            android:textColor="@color/white"
             android:layout_gravity="start"
             android:textStyle="bold"
             android:textSize="25dp"
@@ -91,6 +102,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="start"
             android:text="direccion"
+            android:textColor="@color/white"
             android:textSize="20dp" />
 
         <TextView

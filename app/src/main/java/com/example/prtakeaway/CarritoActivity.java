@@ -41,15 +41,17 @@ public class CarritoActivity extends AppCompatActivity {
     String BASEURL = "http://192.168.18.251:3000/";
 
     List<ProductoEnCarrito> carrito;
+    int id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_carrito);
-        Log.d("prueba", "entro al activity");
         etComentario = findViewById(R.id.etComentario);
         carrito = obtenerProductosEnCarrito();
+        SharedPreferences sharedPreferences = getSharedPreferences("MisPreferencias", MODE_PRIVATE);
 
+        id = sharedPreferences.getInt("id",-1);
 
         //iniciamos y editamos el recycler view con el adaptador
         recyclerView = findViewById(R.id.recyclerViewCarrito);
@@ -72,9 +74,6 @@ public class CarritoActivity extends AppCompatActivity {
                 showConfirmDialog();
             }
         });
-
-
-
         }
 
         //funcion que obtiene del sharedprefreferences el carrito
@@ -124,16 +123,14 @@ public class CarritoActivity extends AppCompatActivity {
             double total = carritoAdapter.calcularPrecioTotal();
 
             //aqui haremos el post y tal
-            Pedidos.Pedido pedido = new Pedidos.Pedido();
-            SharedPreferences sharedPreferences = getSharedPreferences("MisPreferencias", MODE_PRIVATE);
-            pedido.setIDCliente(sharedPreferences.getInt("id",-1));
+            Order pedido = new Order();
+
+            //pedido.setIDCliente(sharedPreferences.getInt("id",-1));
+            pedido.setIDCliente(id);
             pedido.setComentario(etComentario.getText().toString());
             pedido.setTotal(total);
-            Log.d("PedidoConfirmado", pedido.getComentario());
 
-           // enviarPedido(pedido);
-
-
+            enviarPedido(pedido);
 
 
         });
@@ -146,7 +143,7 @@ public class CarritoActivity extends AppCompatActivity {
         dialog.show();
     }
 
-    private void enviarPedido(Pedidos.Pedido pedido) {
+    private void enviarPedido(Order pedido) {
         // Usar Retrofit para realizar la solicitud POST con el objeto Pedido
         // Debes configurar tu interfaz de servicio para manejar esta solicitud
         // Aquí está un ejemplo simplificado de cómo podrías hacerlo:
@@ -158,7 +155,7 @@ public class CarritoActivity extends AppCompatActivity {
 
         TiendaAPI tiendaAPI = retrofit.create(TiendaAPI.class);
 
-        /*Call<Void> call = tiendaAPI.enviarPedido(pedido); // Debes crear esta función en tu interfaz
+        Call<Void> call = tiendaAPI.enviarPedido(pedido); // Debes crear esta función en tu interfaz
 
         call.enqueue(new Callback<Void>() {
             @Override
@@ -174,8 +171,9 @@ public class CarritoActivity extends AppCompatActivity {
             public void onFailure(Call<Void> call, Throwable t) {
                 Log.d("error onFailure",t.getMessage());
             }
-        });*/
+        });
 
+        /*
         List<ProductoEnviar> productosEnviar = new ArrayList<>();
         for (ProductoEnCarrito producto : carrito){
             int idProducto = producto.getIDproducto();
@@ -185,11 +183,6 @@ public class CarritoActivity extends AppCompatActivity {
 
         PedidoEnviar pedido1  = new PedidoEnviar();
         pedido1.setProductosEnCarrito(productosEnviar);
-
-
+*/
     }
-
-
-
-
 }

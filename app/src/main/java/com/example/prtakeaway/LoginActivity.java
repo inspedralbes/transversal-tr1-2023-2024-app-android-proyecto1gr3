@@ -26,6 +26,8 @@ public class LoginActivity extends AppCompatActivity {
     public Retrofit retrofit; //variable para el retrofit
 Button btnLogin;
 EditText etUser, etPass;
+SharedPreferences sharedPreferences;
+SharedPreferences.Editor editor;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +40,8 @@ EditText etUser, etPass;
         //pass: A21ismalgelo
 
         //definimos lo que hace el boton de login
+        sharedPreferences = getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
+
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -45,7 +49,7 @@ EditText etUser, etPass;
                 String user = etUser.getText().toString();
                 String pass = etPass.getText().toString();
                 login(user, pass); //llamamos a la funcion
-                loginPrueba();
+                //loginPrueba();
 
                 //Toast.makeText(LoginActivity.this, "User: "+user+" Pass: "+pass, Toast.LENGTH_SHORT).show();
             }
@@ -87,10 +91,10 @@ EditText etUser, etPass;
 
 
                     //usamos sharedPreferences para que sean variables globales
-                    SharedPreferences sharedPreferences = getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
 
                     Log.d("nombre",respuesta.userData.getNombre());
-                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor = sharedPreferences.edit();
+                    Log.d("prueba login",respuesta.userData.getIdUsuario()+" ");
 
                     editor.putInt("id", respuesta.userData.getIdUsuario());
                     editor.putString("nombre", respuesta.userData.getNombre());
