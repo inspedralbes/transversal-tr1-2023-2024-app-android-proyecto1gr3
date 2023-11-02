@@ -1,5 +1,6 @@
 package com.example.prtakeaway;
 
+import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,6 +21,7 @@ public class ProductosAdapter extends RecyclerView.Adapter<ProductosAdapter.Prod
 
     private List<Productos.Producto> productos;
     private List<ProductoEnCarrito> carrito;
+    private Context context;
 
     public ProductosAdapter(List<Productos.Producto> productos, List<ProductoEnCarrito> carrito){
 
@@ -44,7 +48,8 @@ public class ProductosAdapter extends RecyclerView.Adapter<ProductosAdapter.Prod
 
         // Configura las vistas del elemento de lista con los datos del producto
         // Aquí deberías cargar la imagen desde la URL si es necesario.
-        //holder.imagenProducto.setImageResource(R.drawable.imagen_placeholder);
+        Picasso.get().load(producto.getImatge()).into(holder.imagenProducto);
+        Log.d("imagen", producto.getImatge());
         holder.nombreProducto.setText(producto.getNombreProducto());
         holder.precioProducto.setText(String.valueOf(producto.getPrecioUnitario())+"€");
         holder.descripcionProducto.setText(producto.getDescripcion());
@@ -71,6 +76,7 @@ public class ProductosAdapter extends RecyclerView.Adapter<ProductosAdapter.Prod
         //ImageView imagenProducto;
         TextView nombreProducto, precioProducto, descripcionProducto;
         Button btnAfegir;
+        ImageView imagenProducto;
 
         public ProductoViewHolder(View itemView) {
             super(itemView);
@@ -79,6 +85,7 @@ public class ProductosAdapter extends RecyclerView.Adapter<ProductosAdapter.Prod
             precioProducto = itemView.findViewById(R.id.precioProducto);
             btnAfegir = itemView.findViewById(R.id.btnAfegir);
             descripcionProducto = itemView.findViewById(R.id.descripcionProducto);
+            imagenProducto = itemView.findViewById(R.id.imagenProducto);
         }
     }
 
