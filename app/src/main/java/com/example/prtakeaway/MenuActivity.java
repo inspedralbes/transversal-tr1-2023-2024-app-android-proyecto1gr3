@@ -25,7 +25,7 @@ public class MenuActivity extends AppCompatActivity {
         btnMiPerfil = findViewById(R.id.btnMiPerfil);
         tvTitol = findViewById(R.id.tvTitol);
 
-        SharedPreferences sharedPreferences = getSharedPreferences("MisPreferenciasPrueba",MODE_PRIVATE);
+        SharedPreferences sharedPreferences = getSharedPreferences("MisPreferencias",MODE_PRIVATE);
         tvTitol.setText("Benvolgut " + sharedPreferences.getString("nombre","")+"! ¿Que vols fer?");
 
         //agregamos a cada boton el intent para ir a cada pantalla

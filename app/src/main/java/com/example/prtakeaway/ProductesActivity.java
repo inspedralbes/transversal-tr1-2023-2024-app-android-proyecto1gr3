@@ -28,7 +28,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class ProductesActivity extends AppCompatActivity {
 
     private Retrofit retrofit; //variable para el retrofit
-    private String URL = "http://192.168.18.251:3000/"; //url para pedir los productos
+    private String URL = "http://192.168.16.131:3000/"; //url para pedir los productos
     private RecyclerView recyclerView;
     private ProductosAdapter adapter;
     Button btnTodo, btnMenos2, btnMenos5;
@@ -123,7 +123,6 @@ public class ProductesActivity extends AppCompatActivity {
 
             Gson gson = new Gson();
             String CarritoJson = gson.toJson(carrito);
-            Log.d("pruebaJSON", CarritoJson);
 
             editor.putString("productoEnCarrito", CarritoJson);
             editor.apply();
@@ -155,12 +154,6 @@ public class ProductesActivity extends AppCompatActivity {
         carrito.add(productoEnCarrito);
 
         Toast.makeText(this, nombreProducto+" añadido al carrito!", Toast.LENGTH_SHORT).show();
-
-        for(ProductoEnCarrito productoEnCarrito1 : carrito){
-            String prueba = productoEnCarrito1.getNombre() + " "+productoEnCarrito1.getCantidad();
-            Log.d("productoEnCarrito", prueba);
-        }
-
 
     }
 }

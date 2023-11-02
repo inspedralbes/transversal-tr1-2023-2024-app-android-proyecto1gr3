@@ -15,4 +15,11 @@
     <string name="menor5">Menys de 5€</string>
     <string name="estatComanda">Estat de la teva comanda</string>
     <string name="confirmar">Estàs segur de confirmar la comanda?</string>
+    <string name="btnConfirmar">Confirmar compra</string>
+    <string name="comentariAdicional">Comentari adicional: </string>
+    <string name="preuTotal">Preu total: </string>
+    <string name="elTeuCarrito">EL TEU CARRITO</string>
+    <string name="btnProductos">VEURE PRODUCTES</string>
+    <string name="btnComandes">VEURE COMANDES</string>
+    <string name="btnPerfil">VEURE PERFIL</string>
 </resources>

@@ -22,7 +22,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class LoginActivity extends AppCompatActivity {
-    String URL = "http://192.168.18.251:3000/"; //variable con la url a la que nos conectamos
+    String URL = "http://192.168.16.131:3000/"; //variable con la url a la que nos conectamos
     public Retrofit retrofit; //variable para el retrofit
 Button btnLogin;
 EditText etUser, etPass;
@@ -87,14 +87,11 @@ SharedPreferences.Editor editor;
             public void onResponse(Call<RespuestaUsuario> call, Response<RespuestaUsuario> response) {
                 if (response.isSuccessful()){
                     RespuestaUsuario respuesta = response.body();
-                    Log.d("prueba Response",respuesta.toString());
 
 
                     //usamos sharedPreferences para que sean variables globales
 
-                    Log.d("nombre",respuesta.userData.getNombre());
                     editor = sharedPreferences.edit();
-                    Log.d("prueba login",respuesta.userData.getIdUsuario()+" ");
 
                     editor.putInt("id", respuesta.userData.getIdUsuario());
                     editor.putString("nombre", respuesta.userData.getNombre());

@@ -38,21 +38,21 @@
                 android:layout_width="600px"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="150px"
-                android:text="VER PRODUCTOS"/>
+                android:text="@string/btnProductos"/>
 
             <Button
                 android:id="@+id/btnEstado"
                 android:layout_width="600px"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="150px"
-                android:text="Estado de pedidos"/>
+                android:text="@string/btnComandes"/>
 
             <Button
                 android:id="@+id/btnMiPerfil"
                 android:layout_width="600px"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="150px"
-                android:text="Mi perfil"/>
+                android:text="@string/btnPerfil"/>
 
 
         </LinearLayout>

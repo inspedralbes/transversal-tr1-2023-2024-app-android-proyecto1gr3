@@ -19,14 +19,14 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
      * (custom ViewHolder).
      */
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        private final TextView textView, textView2;
-        private final EditText editText;
+        private final TextView textView, textView2, textView3;
+
 
         public ViewHolder(View view) {
             super(view);
             // Define click listener for the ViewHolder's View
             textView = view.findViewById(R.id.textView);
-            editText = view.findViewById(R.id.editText);
+            textView3 = view.findViewById(R.id.editText);
             textView2 = view.findViewById(R.id.textView2);
 
         }
@@ -37,8 +37,8 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
         public TextView getTextView2() {
             return textView2;
         }
-        public EditText getEditView() {
-            return editText;
+        public TextView getEditView() {
+            return textView3;
         }
     }
 
@@ -74,7 +74,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
 
         // Get element from your dataset at this position and replace the
         // contents of the view with that element
-        viewHolder.getTextView().setText(String.valueOf(pedido.getIDPedido()));
+        viewHolder.getTextView().setText(String.valueOf(pedido.getIDPedido())+" ");
         viewHolder.getTextView2().setText(pedido.getEstado());
         viewHolder.getEditView().setText(pedido.getComentario());
     }

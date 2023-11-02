@@ -16,7 +16,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="EL TEU CARRITO"
+            android:text="@string/elTeuCarrito"
             android:textColor="@color/white"
             android:textStyle="bold"
             android:textSize="35dp"
@@ -40,7 +40,7 @@
             android:id="@+id/tvPrecio"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Preu total: "
+            android:text="@string/preuTotal"
             app:layout_constraintBottom_toTopOf="@+id/etComentario"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -55,7 +55,7 @@
             app:layout_constraintBottom_toTopOf="@+id/btnConfirmar"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:hint="Comentario adicional:"
+            android:hint="@string/comentariAdicional"
             android:layout_marginHorizontal="50px"
             android:layout_marginVertical="50px"
             android:background="@color/white"/>
@@ -68,7 +68,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/etComentario"
-            android:text="CONFIRMAR COMPRA"
+            android:text="@string/btnConfirmar"
             android:layout_marginTop="50px"
             android:layout_gravity="center"/>
 
