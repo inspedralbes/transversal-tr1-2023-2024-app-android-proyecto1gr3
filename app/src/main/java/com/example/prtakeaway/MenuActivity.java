@@ -12,7 +12,7 @@ import android.widget.TextView;
 public class MenuActivity extends AppCompatActivity {
 
     //variables para los botones del menu
-    Button btnProductos, btnEstado, btnMiPerfil;
+    Button btnProductos, btnEstado, btnMiPerfil, btnVolver;
     TextView tvTitol;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +24,7 @@ public class MenuActivity extends AppCompatActivity {
         btnEstado = findViewById(R.id.btnEstado);
         btnMiPerfil = findViewById(R.id.btnMiPerfil);
         tvTitol = findViewById(R.id.tvTitol);
+        btnVolver = findViewById(R.id.btnVolver);
 
         SharedPreferences sharedPreferences = getSharedPreferences("MisPreferencias",MODE_PRIVATE);
         tvTitol.setText("Benvolgut " + sharedPreferences.getString("nombre","")+"! ¿Que vols fer?");
@@ -49,6 +50,17 @@ public class MenuActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(MenuActivity.this, PerfilActivity.class);
                 startActivity(intent);
+            }
+        });
+        btnVolver.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.clear();
+                editor.apply();
+                Intent intent = new Intent(MenuActivity.this, LoginActivity.class);
+                startActivity(intent);
+
             }
         });
     }

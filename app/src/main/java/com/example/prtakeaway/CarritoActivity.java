@@ -38,7 +38,7 @@ public class CarritoActivity extends AppCompatActivity {
     TextView tvPrecio;
     Button btnConfirmar;
     EditText etComentario;
-    String BASEURL = "http://192.168.16.131:3000/";
+    String BASEURL = "http://damtr1g3.dam.inspedralbes.cat:3333/";
 
     List<ProductoEnCarrito> carrito;
     int id;

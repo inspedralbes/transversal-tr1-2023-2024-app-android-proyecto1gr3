@@ -22,7 +22,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class LoginActivity extends AppCompatActivity {
-    String URL = "http://192.168.16.131:3000/"; //variable con la url a la que nos conectamos
+    String URL = "http://damtr1g3.dam.inspedralbes.cat:3333/"; //variable con la url a la que nos conectamos
     public Retrofit retrofit; //variable para el retrofit
 Button btnLogin;
 EditText etUser, etPass;
@@ -36,8 +36,8 @@ SharedPreferences.Editor editor;
         etPass = findViewById(R.id.etPass);
         etUser = findViewById(R.id.etUser);
 
-        //usuario :  a21ismalgelo@inspedralbes.cat
-        //pass: A21ismalgelo
+        //usuario :  clientest@gmail.com
+        //pass: 1234
 
         //definimos lo que hace el boton de login
         sharedPreferences = getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
@@ -71,6 +71,8 @@ SharedPreferences.Editor editor;
 
     //funcion que comprobara si el usuario puede entrar
     public void login(String user, String pass){
+        Log.d("onresponseLogin","entra al onResponse bien");
+
         //llamamos a retrofit
         retrofit = new Retrofit.Builder().baseUrl(URL)
                 .addConverterFactory(GsonConverterFactory.create())
@@ -87,6 +89,7 @@ SharedPreferences.Editor editor;
             public void onResponse(Call<RespuestaUsuario> call, Response<RespuestaUsuario> response) {
                 if (response.isSuccessful()){
                     RespuestaUsuario respuesta = response.body();
+                    Log.d("onresponse","sadasd");
 
 
                     //usamos sharedPreferences para que sean variables globales
@@ -108,6 +111,7 @@ SharedPreferences.Editor editor;
                     startActivity(intent);
 
                 }else{
+                   Log.d("response","response mal "+response.body());
                     Toast.makeText(LoginActivity.this, "Usuario incorrecto :c", Toast.LENGTH_SHORT).show();                }
             }
 

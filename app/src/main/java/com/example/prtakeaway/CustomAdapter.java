@@ -1,13 +1,17 @@
 package com.example.prtakeaway;
 
+import android.content.SharedPreferences;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder> {
@@ -20,6 +24,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
      */
     public static class ViewHolder extends RecyclerView.ViewHolder {
         private final TextView textView, textView2, textView3;
+
 
 
         public ViewHolder(View view) {
@@ -48,14 +53,18 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
      * @param dataSet String[] containing the data to populate views to be used
      * by RecyclerView.
      */
-    public CustomAdapter(List<Pedidos.Pedido> dataSet) {
+    private int idUsuario;
+    public CustomAdapter(List<Pedidos.Pedido> dataSet, int id) {
         localDataSet = dataSet;
+        this.idUsuario = id;
     }
+    List<Pedidos.Pedido> pedidosUsuario = new ArrayList<>();
 
     // Create new views (invoked by the layout manager)
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
         // Create a new view, which defines the UI of the list item
+
         View view = LayoutInflater.from(viewGroup.getContext())
                 .inflate(R.layout.text_row_item, viewGroup, false);
 
@@ -66,18 +75,26 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
         localDataSet.addAll(nuevopedido); // Agrega los nuevos productos
         notifyDataSetChanged(); // Notifica al adaptador que los datos han cambiado
     }
+    public void filtrarPedidosPorUsuario() {
+
+
+        for (Pedidos.Pedido pedido : localDataSet) {
+            if (pedido.getIDCliente() == idUsuario) {
+                pedidosUsuario.add(pedido);
+            }
+        }
+        notifyDataSetChanged();
+    }
 
     // Replace the contents of a view (invoked by the layout manager)
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, final int position) {
         Pedidos.Pedido pedido = localDataSet.get(position);
-
-        // Get element from your dataset at this position and replace the
-        // contents of the view with that element
-        viewHolder.getTextView().setText(String.valueOf(pedido.getIDPedido())+" ");
+        viewHolder.getTextView().setText(String.valueOf(pedido.getIDPedido()) + " ");
         viewHolder.getTextView2().setText(pedido.getEstado());
         viewHolder.getEditView().setText(pedido.getComentario());
     }
+
 
     // Return the size of your dataset (invoked by the layout manager)
     @Override

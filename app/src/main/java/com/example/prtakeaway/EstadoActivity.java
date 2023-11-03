@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
@@ -28,25 +29,29 @@ public class EstadoActivity extends AppCompatActivity {
     private CustomAdapter adapter;
 
     private Socket mSocket;
-    private String URLSocket = "ws://socket.com";
+    private String URLSocket = "http://dam.inspedralbes.cat";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_estado);
+        SharedPreferences sharedPreferences = getSharedPreferences("MisPreferencias",MODE_PRIVATE);
+        int idParaEstado = sharedPreferences.getInt("id",0);
+        Log.d("pruebaEstado", ""+idParaEstado);
 
         recyclerView = findViewById(R.id.recyclerView);
-        adapter = new CustomAdapter(pedidos); // data es tu conjunto de datos
+        adapter = new CustomAdapter(pedidos, idParaEstado); // data es tu conjunto de datos
+        //adapter.filtrarPedidosPorUsuario();
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.16.131:3000/")
+                .baseUrl("http://damtr1g3.dam.inspedralbes.cat:3333/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         TiendaAPI tiendaAPI = retrofit.create(TiendaAPI.class);
         Log.d("muestra","aqui");
-        Call<List<Pedidos.Pedido>> call = tiendaAPI.getPedido();
+        Call<List<Pedidos.Pedido>> call = tiendaAPI.getPedido(idParaEstado);
         call.enqueue(new Callback<List<Pedidos.Pedido>>() {
             @Override
             public void onResponse(Call<List<Pedidos.Pedido>> call, Response<List<Pedidos.Pedido>> response) {
@@ -89,34 +94,48 @@ public class EstadoActivity extends AppCompatActivity {
             @Override
             public void call(Object... args) {
 
-                actualizarPedidos();
+                actualizarPedidos(idParaEstado);
             }
         });
         mSocket.on("Rebutjada", new Emitter.Listener() {
             @Override
             public void call(Object... args) {
 
-                actualizarPedidos();
+                actualizarPedidos(idParaEstado);
             }
         });
-        mSocket.on("Completada", new Emitter.Listener() {
+        mSocket.on("Llesta", new Emitter.Listener() {
             @Override
             public void call(Object... args) {
 
-                actualizarPedidos();
+                actualizarPedidos(idParaEstado);
+            }
+        });
+        mSocket.on("Entregada", new Emitter.Listener() {
+            @Override
+            public void call(Object... args) {
+
+                actualizarPedidos(idParaEstado);
+            }
+        });
+        mSocket.on("comandaNova", new Emitter.Listener() {
+            @Override
+            public void call(Object... args) {
+
+                actualizarPedidos(idParaEstado);
             }
         });
 
     }
 
-    public void actualizarPedidos(){
+    public void actualizarPedidos(int idParaEstado){
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.16.131:3000/")
+                .baseUrl("http://damtr1g3.dam.inspedralbes.cat:3333/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         TiendaAPI tiendaAPI = retrofit.create(TiendaAPI.class);
         Log.d("muestra","aqui");
-        Call<List<Pedidos.Pedido>> call = tiendaAPI.getPedido();
+        Call<List<Pedidos.Pedido>> call = tiendaAPI.getPedido(idParaEstado);
         call.enqueue(new Callback<List<Pedidos.Pedido>>() {
             @Override
             public void onResponse(Call<List<Pedidos.Pedido>> call, Response<List<Pedidos.Pedido>> response) {

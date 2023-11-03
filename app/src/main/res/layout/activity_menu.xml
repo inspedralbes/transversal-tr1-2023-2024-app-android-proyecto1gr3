@@ -29,35 +29,44 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="200px"
+            android:gravity="center"
             android:orientation="vertical"
-            android:gravity="center">
+            android:paddingTop="200px">
 
             <Button
                 android:id="@+id/btnVerProductos"
                 android:layout_width="600px"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="150px"
-                android:text="@string/btnProductos"/>
+                android:text="@string/btnProductos" />
 
             <Button
                 android:id="@+id/btnEstado"
                 android:layout_width="600px"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="150px"
-                android:text="@string/btnComandes"/>
+                android:text="@string/btnComandes" />
 
             <Button
                 android:id="@+id/btnMiPerfil"
                 android:layout_width="600px"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="150px"
-                android:text="@string/btnPerfil"/>
+                android:text="@string/btnPerfil" />
 
 
         </LinearLayout>
+        <Button
+            android:layout_marginTop="250px"
+            android:id="@+id/btnVolver"
+            android:layout_width="300px"
+            android:layout_height="200px"
+            android:layout_gravity="right|end"
+            android:text="SORTIR" />
+
 
 
     </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

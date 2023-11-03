@@ -28,7 +28,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class ProductesActivity extends AppCompatActivity {
 
     private Retrofit retrofit; //variable para el retrofit
-    private String URL = "http://192.168.16.131:3000/"; //url para pedir los productos
+    private String URL = "http://damtr1g3.dam.inspedralbes.cat:3333/"; //url para pedir los productos
     private RecyclerView recyclerView;
     private ProductosAdapter adapter;
     Button btnTodo, btnMenos2, btnMenos5;
