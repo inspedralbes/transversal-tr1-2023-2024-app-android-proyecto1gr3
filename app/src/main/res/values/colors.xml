@@ -7,4 +7,10 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="colorPendiente">#B1BD8F</color> <!-- Gris -->
+    <color name="colorCerrado">#15E743</color> <!-- Verde -->
+    <color name="colorRechazado">#FC1F1F</color> <!-- Rojo -->
+    <color name="colorEnProceso">#F0277B</color> <!-- Morado -->
+    <color name="colorEntregades">#41e0d6</color> <!-- Cian -->
+
 </resources>

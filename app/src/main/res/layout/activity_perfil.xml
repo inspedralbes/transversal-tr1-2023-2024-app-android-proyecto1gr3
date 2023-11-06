@@ -23,7 +23,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/tituloPerfil"
-            android:textSize="40dp"
+            android:textSize="30dp"
             android:textColor="@color/white"
             android:layout_gravity="center"
             android:textStyle="bold"
@@ -82,7 +82,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="start"
             android:textColor="@color/white"
-            android:textSize="20sp" />
+            android:textSize="15sp" />
         <TextView
             android:layout_marginTop="50px"
             android:layout_width="wrap_content"

@@ -20,5 +20,5 @@ public interface TiendaAPI {
     Call<List<Pedidos.Pedido>> getPedido(@Path("id")int id);
 
     @POST("/createOrder")
-    Call<Void> enviarPedido(@Body Order pedido);
+    Call<Void> enviarPedido(@Body Order pedido, List<ProductoEnCarrito> productos);
 }

@@ -1,6 +1,7 @@
 package com.example.prtakeaway;
 
 import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -85,6 +87,32 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
         }
         notifyDataSetChanged();
     }
+    private void setColorByEstado(TextView textView, String estado) {
+        int colorResId;
+        switch (estado) {
+            case "Pendent":
+                colorResId = R.color.colorPendiente;
+                break;
+            case "Tancades":
+                colorResId = R.color.colorCerrado;
+                break;
+            case "Rebutjades":
+                colorResId = R.color.colorRechazado;
+                break;
+            case "En Preparacio":
+                colorResId = R.color.colorEnProceso;
+                break;
+
+            case "Entregades":
+                colorResId = R.color.colorEntregades;
+                break;
+            default:
+                colorResId = android.R.color.black; // Color predeterminado
+                break;
+        }
+        int color = ContextCompat.getColor(textView.getContext(), colorResId);
+        textView.setTextColor(color);
+    }
 
     // Replace the contents of a view (invoked by the layout manager)
     @Override
@@ -92,7 +120,10 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
         Pedidos.Pedido pedido = localDataSet.get(position);
         viewHolder.getTextView().setText(String.valueOf(pedido.getIDPedido()) + " ");
         viewHolder.getTextView2().setText(pedido.getEstado());
+        viewHolder.getTextView2().setTypeface(null, Typeface.BOLD_ITALIC);
         viewHolder.getEditView().setText(pedido.getComentario());
+
+        setColorByEstado(viewHolder.getTextView2(), pedido.getEstado());
     }
 
 

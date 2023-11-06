@@ -29,7 +29,7 @@ public class EstadoActivity extends AppCompatActivity {
     private CustomAdapter adapter;
 
     private Socket mSocket;
-    private String URLSocket = "http://dam.inspedralbes.cat";
+    private String URLSocket = "http://dam.inspedralbes.cat:3333";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

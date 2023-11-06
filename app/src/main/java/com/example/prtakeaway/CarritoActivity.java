@@ -155,7 +155,7 @@ public class CarritoActivity extends AppCompatActivity {
 
         TiendaAPI tiendaAPI = retrofit.create(TiendaAPI.class);
 
-        Call<Void> call = tiendaAPI.enviarPedido(pedido); // Debes crear esta función en tu interfaz
+        Call<Void> call = tiendaAPI.enviarPedido(pedido, carrito); // Debes crear esta función en tu interfaz
 
         call.enqueue(new Callback<Void>() {
             @Override
