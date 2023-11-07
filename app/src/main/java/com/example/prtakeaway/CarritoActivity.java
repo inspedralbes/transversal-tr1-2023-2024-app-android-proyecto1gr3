@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
@@ -71,7 +72,12 @@ public class CarritoActivity extends AppCompatActivity {
         btnConfirmar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showConfirmDialog();
+
+                if(!carrito.isEmpty()){
+                    showConfirmDialog();
+                }else{
+                    Toast.makeText(CarritoActivity.this, "No puedes hacer un pedido sin productos!", Toast.LENGTH_SHORT).show();
+                }
             }
         });
         }
@@ -132,6 +138,13 @@ public class CarritoActivity extends AppCompatActivity {
 
             enviarPedido(pedido);
 
+            // Cierra la actividad actual
+            finish();
+
+            // Inicia la actividad del menú (reemplaza MainMenuActivity.class con la clase de tu menú)
+            Intent intent = new Intent(CarritoActivity.this, MenuActivity.class);
+            startActivity(intent);
+
 
         });
 
@@ -155,7 +168,12 @@ public class CarritoActivity extends AppCompatActivity {
 
         TiendaAPI tiendaAPI = retrofit.create(TiendaAPI.class);
 
-        Call<Void> call = tiendaAPI.enviarPedido(pedido, carrito); // Debes crear esta función en tu interfaz
+        // Crea un PedidoContainer con tu Order y la lista de productos
+        PedidoContainer pedidoContainer = new PedidoContainer(pedido, carrito);
+        Log.d("PedidoContainer", pedidoContainer.toString());
+
+// Llama al método enviarPedido con el PedidoContainer
+        Call<Void> call = tiendaAPI.enviarPedido(pedidoContainer); // Debes crear esta función en tu interfaz
 
         call.enqueue(new Callback<Void>() {
             @Override
@@ -173,16 +191,5 @@ public class CarritoActivity extends AppCompatActivity {
             }
         });
 
-        /*
-        List<ProductoEnviar> productosEnviar = new ArrayList<>();
-        for (ProductoEnCarrito producto : carrito){
-            int idProducto = producto.getIDproducto();
-            int cantidad = producto.getCantidad();
-            productosEnviar.add(new ProductoEnviar(idProducto, cantidad));
-        }
-
-        PedidoEnviar pedido1  = new PedidoEnviar();
-        pedido1.setProductosEnCarrito(productosEnviar);
-*/
     }
 }

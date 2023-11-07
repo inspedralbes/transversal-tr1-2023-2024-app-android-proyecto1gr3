@@ -53,6 +53,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/nombreProducto" />
 
+
         <Button
             android:id="@+id/btnAfegir"
             android:layout_width="130px"

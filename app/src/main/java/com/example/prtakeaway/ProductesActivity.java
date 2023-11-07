@@ -31,7 +31,7 @@ public class ProductesActivity extends AppCompatActivity {
     private String URL = "http://damtr1g3.dam.inspedralbes.cat:3333/"; //url para pedir los productos
     private RecyclerView recyclerView;
     private ProductosAdapter adapter;
-    Button btnTodo, btnMenos2, btnMenos5;
+    Button btnTodo, btnHamburguesas, btnBebidas, btnComplementos;
 
     List<Productos.Producto> productos = new ArrayList<>(); //array donde estarán todos los productos
     List<ProductoEnCarrito> carrito = new ArrayList<>(); //array para los productos seleccionados
@@ -43,8 +43,9 @@ public class ProductesActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         btnTodo = findViewById(R.id.btnTodo);
-        btnMenos2 = findViewById(R.id.btnMenor2);
-        btnMenos5 = findViewById(R.id.btnMenor5);
+        btnHamburguesas = findViewById(R.id.btnHamburguesas);
+        btnBebidas = findViewById(R.id.btnBebidas);
+        btnComplementos = findViewById(R.id.btnComplementos);
 
 
         // Inicializa el RecyclerView y su adaptador
@@ -90,18 +91,26 @@ public class ProductesActivity extends AppCompatActivity {
                 adapter.actualizarProductos(productos);
             }
         });
-        btnMenos2.setOnClickListener(new View.OnClickListener() {
+        btnHamburguesas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                adapter.filtrarProductosPorPrecio(2.0);
+                adapter.actualizarProductos(productos);
+                adapter.filtrarProductosPorPrecio("Hamburguesas");
 
             }
         });
-        btnMenos5.setOnClickListener(new View.OnClickListener() {
+        btnComplementos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                adapter.filtrarProductosPorPrecio(5.0);
+                adapter.actualizarProductos(productos);
+                adapter.filtrarProductosPorPrecio("Complementos");
+            }
+        });
+        btnBebidas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                adapter.actualizarProductos(productos);
+                adapter.filtrarProductosPorPrecio("Begudes");
             }
         });
 

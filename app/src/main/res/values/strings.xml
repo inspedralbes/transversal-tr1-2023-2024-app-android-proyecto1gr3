@@ -11,8 +11,9 @@
     <string name="perfilTelefono">Telèfon:</string>
     <string name="itemBtnAfegir"> + </string>
     <string name="mostrarTodo">Mostrar tot</string>
-    <string name="menor2">Menys de 2€</string>
-    <string name="menor5">Menys de 5€</string>
+    <string name="Hamburguesas">Hamburguesas</string>
+    <string name="Complements">Complements</string>
+    <string name="begudes">Begudes</string>
     <string name="estatComanda">Estat de la teva comanda</string>
     <string name="confirmar">Estàs segur de confirmar la comanda?</string>
     <string name="btnConfirmar">Confirmar compra</string>

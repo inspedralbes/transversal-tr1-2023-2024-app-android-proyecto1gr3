@@ -93,13 +93,17 @@ public class ProductosAdapter extends RecyclerView.Adapter<ProductosAdapter.Prod
         return carrito;
     }
 
-    public void filtrarProductosPorPrecio(double precioMaximo) {
+    public void filtrarProductosPorPrecio(String categoria) {
         List<Productos.Producto> productosFiltrados = new ArrayList<>();
 
-        for (Productos.Producto producto : productos) {
-            if (producto.getPrecioUnitario() < precioMaximo) {
-                productosFiltrados.add(producto);
+
+        for(Productos.Producto producto : productos){
+            if(!producto.getCategoria().isEmpty()){
+                if(producto.getCategoria().equals(categoria)){
+                    productosFiltrados.add(producto);
+                }
             }
+
         }
 
         actualizarProductos(productosFiltrados);

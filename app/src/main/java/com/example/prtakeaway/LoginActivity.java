@@ -48,25 +48,23 @@ SharedPreferences.Editor editor;
                 //cogemos los valores de los campos que ha rellenado el usuario
                 String user = etUser.getText().toString();
                 String pass = etPass.getText().toString();
-                login(user, pass); //llamamos a la funcion
-                //loginPrueba();
 
-                //Toast.makeText(LoginActivity.this, "User: "+user+" Pass: "+pass, Toast.LENGTH_SHORT).show();
+                Pattern pattern = Patterns.EMAIL_ADDRESS;
+                if(!user.isEmpty()){
+                    if(pattern.matcher(user).matches()){
+                        if(!pass.isEmpty()){
+                            login(user,pass);
+                        }else{
+                            Toast.makeText(LoginActivity.this, "Has d'introduir una contrasenya", Toast.LENGTH_SHORT).show();
+                        }
+                    }else{
+                        Toast.makeText(LoginActivity.this, "Introdueix un format vàlid per al correu electrònic", Toast.LENGTH_SHORT).show();
+                    }
+                }else{
+                    Toast.makeText(LoginActivity.this, "Has d'introduir un correu", Toast.LENGTH_SHORT).show();
+                }
             }
         });
-       /* SharedPreferences sharedPreferences = getSharedPreferences("MisPreferenciasPrueba", Context.MODE_PRIVATE);
-
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putInt("id", 1);
-        editor.putString("nombre", "nombre prueba");
-        editor.putString("apellido","apellido prueba");
-        editor.putInt("idCliente",7);
-        editor.putString("contraseña","contraseña prueba");
-        editor.putString("correo", "correo prueba");
-        editor.putString("direccion", "direccion prueba");
-        editor.putString("telefono","telefono prueba");
-
-        editor.apply();*/
     }
 
     //funcion que comprobara si el usuario puede entrar
@@ -122,19 +120,5 @@ SharedPreferences.Editor editor;
         });
     }
 
-    public void loginPrueba(){
 
-        String mail = etUser.getText().toString().trim();
-        Pattern pattern = Patterns.EMAIL_ADDRESS;
-/*
-        if(pattern.matcher(mail).matches()){
-            Intent intent = new Intent(LoginActivity.this, MenuActivity.class);
-            startActivity(intent);
-        }else{
-            Toast.makeText(this, "El mail no es valido!", Toast.LENGTH_SHORT).show();
-
-        }*/
-        Intent intent = new Intent(LoginActivity.this, MenuActivity.class);
-        startActivity(intent);
-    }
 }
