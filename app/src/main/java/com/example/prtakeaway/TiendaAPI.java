@@ -18,6 +18,8 @@ public interface TiendaAPI {
 
     @GET("/getOrdersClient/{id}")
     Call<List<Pedidos.Pedido>> getPedido(@Path("id")int id);
+    @GET("/detailOrder/{id}")
+    Call<List<ProductosComanda.ProductoComanda>> getProductComanda(@Path("id")int id);
 
     @POST("/createOrder")
     Call<Void> enviarPedido(@Body PedidoContainer pedidoContainer);}

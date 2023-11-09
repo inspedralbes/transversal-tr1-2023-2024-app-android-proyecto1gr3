@@ -18,6 +18,11 @@ import java.util.List;
 
 public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder> {
 
+    public interface OnPedidoItemClickListener {
+        void onPedidoItemClick(Pedidos.Pedido pedido);
+    }
+    private OnPedidoItemClickListener listener;
+
     private List<Pedidos.Pedido> localDataSet;
 
     /**
@@ -47,6 +52,14 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
         public TextView getEditView() {
             return textView3;
         }
+        public void bind(final Pedidos.Pedido item, final OnPedidoItemClickListener listener) {
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override public void onClick(View v) {
+                    Log.d("Click", "Elemento de lista clickeado para el producto: " + itemView.getId());
+                    listener.onPedidoItemClick(item);
+                }
+            });
+        }
     }
 
     /**
@@ -56,9 +69,10 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
      * by RecyclerView.
      */
     private int idUsuario;
-    public CustomAdapter(List<Pedidos.Pedido> dataSet, int id) {
+    public CustomAdapter(List<Pedidos.Pedido> dataSet, int id, OnPedidoItemClickListener listener) {
         localDataSet = dataSet;
         this.idUsuario = id;
+        this.listener = listener;
     }
     List<Pedidos.Pedido> pedidosUsuario = new ArrayList<>();
 
@@ -78,8 +92,6 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
         notifyDataSetChanged(); // Notifica al adaptador que los datos han cambiado
     }
     public void filtrarPedidosPorUsuario() {
-
-
         for (Pedidos.Pedido pedido : localDataSet) {
             if (pedido.getIDCliente() == idUsuario) {
                 pedidosUsuario.add(pedido);
@@ -124,6 +136,8 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
         viewHolder.getEditView().setText(pedido.getComentario());
 
         setColorByEstado(viewHolder.getTextView2(), pedido.getEstado());
+        viewHolder.bind(localDataSet.get(position), listener);
+
     }
 
 

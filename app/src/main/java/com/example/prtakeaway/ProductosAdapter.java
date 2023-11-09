@@ -46,25 +46,34 @@ public class ProductosAdapter extends RecyclerView.Adapter<ProductosAdapter.Prod
     public void onBindViewHolder(@NonNull ProductoViewHolder holder, int position) {
         Productos.Producto producto = productos.get(position);
 
-        // Configura las vistas del elemento de lista con los datos del producto
-        // Aquí deberías cargar la imagen desde la URL si es necesario.
-        Picasso.get().load(producto.getImatge()).into(holder.imagenProducto);
-        Log.d("imagen", producto.getImatge());
-        holder.nombreProducto.setText(producto.getNombreProducto());
-        holder.precioProducto.setText(String.valueOf(producto.getPrecioUnitario())+"€");
-        holder.descripcionProducto.setText(producto.getDescripcion());
-        holder.btnAfegir.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ((ProductesActivity) v.getContext()).afegirProducte(producto);
-                for(ProductoEnCarrito product : carrito){
+        Log.d("habilitado",producto.getNombreProducto()+" "+producto.getHabilitado());
 
-                    int cantidad = product.getCantidad();
-                    String prueba = product.getNombre().toString()+" "+cantidad;
-                    Log.d("carrito", prueba);
+        // Verifica si el producto está habilitado
+        if (producto.getHabilitado() == 1) {
+            // El producto está habilitado, configura las vistas del elemento de lista con los datos del producto
+            Picasso.get().load(producto.getImatge()).into(holder.imagenProducto);
+            holder.nombreProducto.setText(producto.getNombreProducto());
+            holder.precioProducto.setText(String.valueOf(producto.getPrecioUnitario()) + "€");
+            holder.descripcionProducto.setText(producto.getDescripcion());
+            holder.btnAfegir.setEnabled(true); // Habilita el botón
+            holder.btnAfegir.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    ((ProductesActivity) v.getContext()).afegirProducte(producto);
+                    for (ProductoEnCarrito product : carrito) {
+                        int cantidad = product.getCantidad();
+                        String prueba = product.getNombre().toString() + " " + cantidad;
+                        Log.d("carrito", prueba);
+                    }
                 }
+            });
+        } else {
+            // El producto no está habilitado, realiza alguna acción, como deshabilitar el botón o cambiar el color de fondo
+            holder.btnAfegir.setEnabled(false); // Deshabilita el botón
+            holder.nombreProducto.setText(producto.getNombreProducto()+" no disponible");
+            holder.precioProducto.setText("");
+            holder.descripcionProducto.setText("");
             }
-        });
     }
 
     @Override

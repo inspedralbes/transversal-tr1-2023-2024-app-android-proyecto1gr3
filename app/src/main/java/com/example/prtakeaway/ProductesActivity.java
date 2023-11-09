@@ -103,7 +103,7 @@ public class ProductesActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 adapter.actualizarProductos(productos);
-                adapter.filtrarProductosPorPrecio("Complementos");
+                adapter.filtrarProductosPorPrecio("Complements");
             }
         });
         btnBebidas.setOnClickListener(new View.OnClickListener() {

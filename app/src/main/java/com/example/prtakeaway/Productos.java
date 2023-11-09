@@ -28,6 +28,8 @@ public  static class Producto{
     private String Imatge;
     @SerializedName("Categoria")
     private String Categoria;
+    @SerializedName("Habilitado")
+    private int Habilitado;
 
     public int getIdProducto() {
         return idProducto;
@@ -55,6 +57,14 @@ public  static class Producto{
 
     public void setCategoria(String categoria) {
         Categoria = categoria;
+    }
+
+    public int getHabilitado() {
+        return Habilitado;
+    }
+
+    public void setHabilitado(int habilitado) {
+        Habilitado = habilitado;
     }
 }
 }
